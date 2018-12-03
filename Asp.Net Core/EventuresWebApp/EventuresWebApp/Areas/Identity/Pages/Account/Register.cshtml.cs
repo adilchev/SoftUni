@@ -41,6 +41,16 @@ namespace EventuresWebApp.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            public string Username { get; set; }
+            [Required]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+            [Required]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+            [Required]
+            public string UCN { get; set; }
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -67,10 +77,17 @@ namespace EventuresWebApp.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = Input.Username, Email = Input.Email, FirstName = Input.FirstName,
+                    LastName = Input.LastName, UniqueCitizenNumber = Input.UCN
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+
+                    await _userManager.AddToRoleAsync(user, "User");
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EventuresWebApp.Data;
+using EventuresWebApp.Extensions;
+using EventuresWebApp.Middlewares;
 using EventuresWebApp.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,7 +40,7 @@ namespace EventuresWebApp
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<ApplicationUser>(options =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
                     {
                         options.Password.RequireUppercase = false;
                         options.Password.RequireDigit = false;
@@ -47,9 +49,15 @@ namespace EventuresWebApp
                         options.Password.RequireNonAlphanumeric = false;
                         options.Password.RequireLowercase = false;
                     }
-                    )
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                )
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
 
+            services
+                .AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>,
+                    UserClaimsPrincipalFactory<ApplicationUser, IdentityRole>>();
+            services.AddScoped<SeedRolesAndAdminMiddleware>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -66,19 +74,20 @@ namespace EventuresWebApp
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
+            app.UseSeedRolesAndAdmin();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
             app.UseAuthentication();
-
+           
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            
         }
     }
 }
