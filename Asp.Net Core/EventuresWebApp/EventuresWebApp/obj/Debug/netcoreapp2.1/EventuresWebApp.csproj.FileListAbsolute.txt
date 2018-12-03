@@ -15,8 +15,6 @@ d:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\D
 d:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\EventuresWebApp.TagHelpers.output.cache
 d:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\EventuresWebApp.RazorCoreGenerate.cache
 d:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
-d:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
-d:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 d:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 d:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 d:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs

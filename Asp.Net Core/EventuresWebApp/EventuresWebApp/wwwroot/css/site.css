@@ -3,6 +3,8 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+   
+                      
 }
 
 /* Wrapping element */
@@ -10,6 +12,10 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+
+}
+.outline-offset {
+    outline-offset: 15px
 }
 
 /* Carousel */
@@ -34,4 +40,27 @@ body {
     .carousel-caption {
         display: none;
     }
+}
+.text-black {
+    color: black;
+}
+
+.hr-2 {
+    height: 2px;
+}
+
+.hr-black {
+    background-color: black;
+}
+
+.bg-eventure {
+    background-color: #AFEEEE;
+}
+
+.bg-grey {
+    background-color: darkgrey;
+}
+
+.text-grey {
+    color: darkgrey;
 }
