@@ -13,6 +13,8 @@ using EventuresWebApp.Data;
 using EventuresWebApp.Extensions;
 using EventuresWebApp.Middlewares;
 using EventuresWebApp.Models;
+using EventuresWebApp.Services;
+using EventuresWebApp.Services.Implementations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -58,6 +60,7 @@ namespace EventuresWebApp
                 .AddScoped<IUserClaimsPrincipalFactory<ApplicationUser>,
                     UserClaimsPrincipalFactory<ApplicationUser, IdentityRole>>();
             services.AddScoped<SeedRolesAndAdminMiddleware>();
+            services.AddScoped<IEventService, EventService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

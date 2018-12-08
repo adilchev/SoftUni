@@ -12,7 +12,7 @@ namespace EventuresWebApp.Controllers
     {
         public IActionResult Index()
         {
-            if (this.User.IsInRole("Admin")||this.User.IsInRole("User"))
+            if (this.User.Identity.IsAuthenticated)
             {
                 return this.View("LoggedInIndex");
             }
