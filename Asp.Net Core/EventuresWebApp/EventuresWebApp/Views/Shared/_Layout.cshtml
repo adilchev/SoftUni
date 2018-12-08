@@ -17,7 +17,7 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-fixed-top bg-eventure" >
+    <nav class="navbar navbar-fixed-top bg-eventure">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -28,31 +28,51 @@
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand text-black " style="font-weight: bold">Eventures</a>
             </div>
-            <div class="navbar-collapse collapse" >
+            <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index" class="text-black" style="font-weight: bold">Home</a></li>
+                    @if (this.User.IsInRole("Admin") || this.User.IsInRole("User"))
+                    {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle text-black" role="button" aria-expanded="False" href="#" data-toggle="dropdown" style="font-weight: bold">Events<span class="caret"></span></a>
+                            @if (this.User.IsInRole("Admin"))
+                            {
+                                <ul class="dropdown-menu" role="menu">
+                                    <li> <a asp-area="" asp-controller="Events" asp-action="All" class="text-black">All Events</a></li>
+                                    <li> <a asp-area="" asp-controller="Events" asp-action="Create" class="text-black">Create Event</a></li>
+                                </ul>
+                            }
+                            else if (this.User.IsInRole("User"))
+                            {
+                                <ul class="dropdown-menu" role="menu">
+                                    <li> <a asp-area="" asp-controller="Events" asp-action="All" class="text-black">All Events</a></li>
+                                </ul>
+                            }
+                        </li>
+                    }
                 </ul>
+
                 <partial name="_LoginPartial" />
             </div>
         </div>
     </nav>
 
     <partial name="_CookieConsentPartial" />
-<div class="container body-content">
-    <br/>
-</div>
-<div class="container body-content">
-    @RenderBody()
-</div>
-<div class="container body-content">
-    <br/>
-    <br/>
-</div>
-<div class="container body-content bg-eventure">
-   <footer class="text-center">
-        <p>&copy; Copyright Eventures Inc. 2018-2018. All rights reserved.</p>
-    </footer>
-</div>
+    <div class="container body-content">
+        <br />
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <div class="container body-content">
+        <br />
+        <br />
+    </div>
+    <div class="container body-content bg-eventure">
+        <footer class="text-center">
+            <p>&copy; Copyright Eventures Inc. 2018-2018. All rights reserved.</p>
+        </footer>
+    </div>
 
 
     <environment include="Development">

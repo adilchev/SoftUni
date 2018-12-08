@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "LoggedInIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron bg-eventure">
+    @if (this.User.IsInRole("User")) { 
+    <h2 class="text-center" style="font-weight: bold">Welcome, @this.User.Identity.Name!</h2>
+    <hr class="hr-2 bg-grey" style="font-weight: bold"/>
+    <p class="text-center text-grey" style="font-weight: bold">Eventures wishes you an exciting experience.</p>
+    }
+    else if (this.User.IsInRole("Admin"))
+    {
+        <h2 class="text-center" style="font-weight: bold">Greetings, Administrator - @this.User.Identity.Name!</h2>
+        <hr class="hr-2 bg-grey" style="font-weight: bold"/>
+        <p class="text-center text-grey" style="font-weight: bold">Enjoy your work.</p>
+    }
+</div>
+

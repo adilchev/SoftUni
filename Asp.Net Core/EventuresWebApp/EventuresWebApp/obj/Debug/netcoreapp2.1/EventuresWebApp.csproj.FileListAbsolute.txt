@@ -64,3 +64,4 @@ D:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\D
 D:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\ResetPasswordConfirmation.g.cshtml.cs
 D:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Account\_ViewImports.g.cshtml.cs
 D:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\EventuresWebApp.csprojAssemblyReference.cache
+D:\Users\User\Desktop\SoftUni\Asp.Net Core\EventuresWebApp\EventuresWebApp\obj\Debug\netcoreapp2.1\Razor\Views\Home\LoggedInIndex.g.cshtml.cs
