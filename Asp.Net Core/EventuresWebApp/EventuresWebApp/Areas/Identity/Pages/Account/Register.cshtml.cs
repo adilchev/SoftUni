@@ -49,6 +49,7 @@ namespace EventuresWebApp.Areas.Identity.Pages.Account
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
             [Required]
+            [RegularExpression("^\\d{10}$")]
             public string UCN { get; set; }
             [Required]
             [EmailAddress]
